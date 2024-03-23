@@ -59,9 +59,7 @@ def generate_peft_config(train_config, kwargs):
 def generate_dataset_config(train_config, kwargs):
     names = tuple(DATASET_PREPROC.keys())
 
-    print(f"This is the value for names: {names}")
-
-    assert train_config.dataset in names, f"Unknown dataset: {train_config.dataset}"
+    assert train_config.dataset in names, f"Unknown dataset and names : {train_config.dataset} {names}"
 
     dataset_config = {k:v for k, v in inspect.getmembers(datasets)}[train_config.dataset]()
 
